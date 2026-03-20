@@ -1,0 +1,9 @@
+.searchForm {
+  background-color: lightcoral;
+  margin: 0;
+  padding: 1rem 4rem;
+
+  & input {
+    padding-inline: 1rem;
+  }
+}
