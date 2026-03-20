@@ -2,17 +2,12 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Starter code for React Movie App
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+`index.html` will load `src/main.jsx` which loads `src/index.css` and `App.jsx`. The `App.jsx` file is the container for our application. It will load a `<SearchForm>` and `<Grid>` component and hold the state variable for the movie search.
 
-## React Compiler
+The `<SearchForm>` will have its own state variable for the value in the `<input>`. It will have an `onSubmit` listener that updates the state variable for the movie search inside `App.js`.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Fetch calls will be done inside the `<Grid>`. The search term gets passed to the grid as a property. It needs a state variable for the current loading status and a second one for the fetch results. It will create a grid of `<MovieCard>` components. While fetching it will show a `<Spinner>` component.
 
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The `<MovieCard>` component will receive all the details of each movie through `props`. It will also use the `<MoviePoster>` component to show either a movie poster or the default fallback image. When loading an image it will need an error handler too.
